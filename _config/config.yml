@@ -1,0 +1,11 @@
+---
+Name: shopcurrencyconfig
+After: shop/*
+---
+
+Product:
+  extensions:
+    - ProductExtension
+Page_Controller:
+  extensions:
+    - Page_ControllerExtension

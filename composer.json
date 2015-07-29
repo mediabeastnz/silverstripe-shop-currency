@@ -1,0 +1,23 @@
+{
+  "name": "mediabeast/silverstripe-shop-currency",
+  "description": "Ability to have multiple currencies for the SilverStripe Shop module",
+  "type": "silverstripe-module",
+  "homepage": "https://github.com/mediabeastnz/silverstripe-shop-currency",
+  "keywords": ["silverstripe", "shop", "currency", "currencies", "e-commerce"],
+  "authors": [
+    {
+      "name": "Myles Beardsmore",
+      "email": "mediabeastnz@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/mediabeastnz/silverstripe-shop-currency/issues"
+  },
+  "require": {
+    "silverstripe/framework": "~3.1",
+    "silverstripe/cms": "~3.1"
+  },
+  "extra": {
+    "installer-name": "shop_currency"
+  }
+}
