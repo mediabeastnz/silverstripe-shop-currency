@@ -15,3 +15,4 @@ This is a basic module that will provide the ability to have multiple currencies
 * Manage rates via API e.g. google finance
 * javascript refresh when switching currencies
 * make module more extension friendly
+* make module more like an API/Interface
