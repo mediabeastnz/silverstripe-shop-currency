@@ -1,26 +1,26 @@
 <?php
 
-class ProductExtension extends DataExtension {
+class ProductExtension extends DataExtension
+{
 
-  private static $casting = array(
+    private static $casting = array(
     "CurrencyPrice" => 'Currency'
   );
 
-  public function getCurrencyPrice() {
+    public function getCurrencyPrice()
+    {
+        if ($currentCurrency = Session::get('Currency')) {
+            $currencyRate = ExchangeRate::get()->filter(array("Currency" => $currentCurrency))->first();
+            if ($currencyRate && $currencyRate->exists()) {
+                $convertedPrice = $this->owner->getField('BasePrice') * $currencyRate->Rate;
 
-    if($currentCurrency = Session::get('Currency')){
-      $currencyRate = ExchangeRate::get()->filter(array("Currency" => $currentCurrency))->first();
-      if($currencyRate && $currencyRate->exists()){
-
-        $convertedPrice = $this->owner->getField('BasePrice') * $currencyRate->Rate;
-
-        return $convertedPrice;
-      }
-    }
+                return $convertedPrice;
+            }
+        }
 
     // no currency other than base
     return false;
-  }
+    }
 
   // Disabled for now.
   // Not ideal as it changes it throughout the whole checkout process meaning the user pays less in some cases.
@@ -40,5 +40,4 @@ class ProductExtension extends DataExtension {
   //
   //   return $this->owner->getField('BasePrice');
   // }
-
 }
